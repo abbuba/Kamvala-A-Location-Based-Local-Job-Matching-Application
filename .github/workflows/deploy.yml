@@ -6,16 +6,14 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -27,15 +25,6 @@ jobs:
 
       - run: npm ci
 
-      - name: Verify Mapbox token secret
-        env:
-          VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
-        run: |
-          if [ -z "$VITE_MAPBOX_TOKEN" ]; then
-            echo "::error::Missing GitHub secret VITE_MAPBOX_TOKEN. Go to repo Settings → Secrets and variables → Actions → New repository secret. Copy the value from your local .env file (do not commit .env)."
-            exit 1
-          fi
-
       - name: Build for GitHub Pages
         env:
           GITHUB_PAGES: 'true'
@@ -45,16 +34,10 @@ jobs:
       - name: SPA fallback for client-side routes
         run: cp dist/index.html dist/404.html
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Deploy built app to gh-pages branch
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          path: dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          folder: dist
+          branch: gh-pages
+          single-commit: true
+          clean: true
