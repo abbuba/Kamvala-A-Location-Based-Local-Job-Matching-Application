@@ -10,10 +10,17 @@ export class ApiError extends Error {
 
 const BASE_URL = '/api'
 
+/** JSON Server only runs in local dev; static deploy uses seed data instead. */
+const API_ENABLED = import.meta.env.DEV
+
 export async function apiClient<T>(
   path: string,
   options?: RequestInit & { signal?: AbortSignal },
 ): Promise<T> {
+  if (!API_ENABLED) {
+    throw new ApiError('API unavailable outside development', 503)
+  }
+
   const response = await fetch(`${BASE_URL}${path}`, {
     headers: {
       'Content-Type': 'application/json',

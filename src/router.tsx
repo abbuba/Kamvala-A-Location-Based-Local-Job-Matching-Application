@@ -17,43 +17,46 @@ function PageLoader() {
   )
 }
 
-export const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <AppShell />,
-    children: [
-      {
-        index: true,
-        element: (
-          <Suspense fallback={<PageLoader />}>
-            <IntroPage />
-          </Suspense>
-        ),
-      },
-      {
-        path: 'explore',
-        element: (
-          <Suspense fallback={<PageLoader />}>
-            <ExplorePage />
-          </Suspense>
-        ),
-      },
-      {
-        path: 'explore/:id',
-        element: (
-          <Suspense fallback={<PageLoader />}>
-            <JobDetailPage />
-          </Suspense>
-        ),
-      },
-      {
-        path: 'enlist',
-        element: (
-          <Suspense fallback={<PageLoader />}>
-            <EnlistPage />
-          </Suspense>
-        ),
-      },
-    ],
-  },
-])
+export const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <AppShell />,
+      children: [
+        {
+          index: true,
+          element: (
+            <Suspense fallback={<PageLoader />}>
+              <IntroPage />
+            </Suspense>
+          ),
+        },
+        {
+          path: 'explore',
+          element: (
+            <Suspense fallback={<PageLoader />}>
+              <ExplorePage />
+            </Suspense>
+          ),
+        },
+        {
+          path: 'explore/:id',
+          element: (
+            <Suspense fallback={<PageLoader />}>
+              <JobDetailPage />
+            </Suspense>
+          ),
+        },
+        {
+          path: 'enlist',
+          element: (
+            <Suspense fallback={<PageLoader />}>
+              <EnlistPage />
+            </Suspense>
+          ),
+        },
+      ],
+    },
+  ],
+  { basename: import.meta.env.BASE_URL },
+)

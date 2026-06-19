@@ -3,7 +3,11 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
+// GitHub Pages project site: https://abbuba.github.io/Kamvala-A-Location-Based-Local-Job-Matching-Application/
+const repoBase = '/Kamvala-A-Location-Based-Local-Job-Matching-Application/'
+
 export default defineConfig({
+  base: process.env.GITHUB_PAGES === 'true' ? repoBase : '/',
   plugins: [react(), tailwindcss()],
   optimizeDeps: {
     include: ['mapbox-gl/dist/mapbox-gl-csp.js'],
