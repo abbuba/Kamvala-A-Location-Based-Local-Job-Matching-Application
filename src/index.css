@@ -1,0 +1,269 @@
+@import 'tailwindcss';
+@import 'mapbox-gl/dist/mapbox-gl.css';
+
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --color-kamvala-blue: #007aff;
+  --color-kamvala-gray: #f2f2f7;
+  --color-kamvala-text: #1c1c1e;
+  --color-kamvala-muted: #8e8e93;
+  --color-kamvala-separator: #c6c6c8;
+  --color-kamvala-fill: #e5e5ea;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-kamvala-fill);
+  color: var(--color-kamvala-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page-enter {
+  animation: slideIn 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* iOS grouped list background */
+.ios-screen {
+  background: var(--color-kamvala-gray);
+}
+
+/* Section label — like iOS Settings */
+.ios-section-header {
+  padding: 0 16px 8px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: -0.08px;
+  color: var(--color-kamvala-muted);
+  text-transform: uppercase;
+}
+
+/* White inset rounded group */
+.ios-group {
+  margin: 0 16px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.04);
+}
+
+.ios-group + .ios-group {
+  margin-top: 0;
+}
+
+/* Row inside group with hairline divider */
+.ios-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 11px 16px;
+  background: #fff;
+}
+
+.ios-row + .ios-row {
+  border-top: 0.5px solid rgba(60, 60, 67, 0.12);
+}
+
+.ios-row-label {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-kamvala-muted);
+}
+
+.ios-field {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--color-kamvala-text);
+  outline: none;
+  padding: 0;
+}
+
+.ios-field::placeholder {
+  color: #c7c7cc;
+}
+
+.ios-textarea {
+  width: 100%;
+  min-height: 88px;
+  resize: none;
+  border: none;
+  background: transparent;
+  font-size: 17px;
+  line-height: 1.35;
+  color: var(--color-kamvala-text);
+  outline: none;
+  padding: 0;
+}
+
+.ios-textarea::placeholder {
+  color: #c7c7cc;
+}
+
+/* Large navigation title */
+.ios-large-title {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 0.37px;
+  line-height: 1.1;
+  color: var(--color-kamvala-text);
+}
+
+.ios-subtitle {
+  margin-top: 4px;
+  font-size: 15px;
+  line-height: 1.35;
+  color: var(--color-kamvala-muted);
+}
+
+/* Segmented control */
+.ios-segmented {
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  border-radius: 9px;
+  background: rgba(118, 118, 128, 0.12);
+}
+
+.ios-segment {
+  flex: 1;
+  border: none;
+  border-radius: 7px;
+  padding: 7px 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-kamvala-text);
+  background: transparent;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.ios-segment[aria-pressed='true'] {
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  color: var(--color-kamvala-text);
+}
+
+/* Primary button — iOS filled */
+.ios-button-primary {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-kamvala-blue);
+  transition: opacity 0.15s;
+}
+
+.ios-button-primary:active {
+  opacity: 0.75;
+}
+
+.ios-button-primary:disabled {
+  opacity: 0.45;
+}
+
+.ios-button-secondary {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-kamvala-blue);
+  background: rgba(0, 122, 255, 0.12);
+}
+
+/* Tab bar blur */
+.ios-tab-bar {
+  border-top: 0.5px solid rgba(60, 60, 67, 0.18);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+/* Bottom sheet handle */
+.ios-sheet {
+  border-radius: 12px 12px 0 0;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 -1px 0 rgba(60, 60, 67, 0.12), 0 -8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.ios-sheet-handle {
+  width: 36px;
+  height: 5px;
+  margin: 8px auto 12px;
+  border-radius: 3px;
+  background: rgba(60, 60, 67, 0.18);
+}
+
+/* Chip pills */
+.ios-chip {
+  border: none;
+  border-radius: 16px;
+  padding: 7px 14px;
+  font-size: 15px;
+  font-weight: 500;
+  background: rgba(118, 118, 128, 0.12);
+  color: var(--color-kamvala-text);
+  transition: background 0.15s, color 0.15s;
+}
+
+.ios-chip[aria-pressed='true'] {
+  background: var(--color-kamvala-blue);
+  color: #fff;
+}
+
+.mapboxgl-map {
+  font-family: var(--font-sans);
+  width: 100%;
+  height: 100%;
+}
+
+.mapboxgl-canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Hide scrollbars inside the phone mockup (scroll still works) */
+.phone-screen,
+.phone-screen * {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.phone-screen *::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  background: transparent;
+}

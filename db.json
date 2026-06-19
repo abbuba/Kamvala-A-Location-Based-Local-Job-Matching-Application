@@ -1,0 +1,326 @@
+{
+  "listings": [
+    {
+      "id": "1",
+      "shopName": "Charminar Kirana",
+      "title": "Shop Assistant",
+      "jobTypes": [
+        "cashier"
+      ],
+      "languages": [
+        "hi",
+        "ur",
+        "en"
+      ],
+      "payMin": 12000,
+      "payMax": 15000,
+      "payPeriod": "monthly",
+      "location": {
+        "lat": 17.3616,
+        "lng": 78.4747,
+        "address": "Laad Bazaar, Near Charminar, Hyderabad"
+      },
+      "storeImage": "https://picsum.photos/seed/hydshop1/400/400",
+      "description": "Help customers, manage billing, and restock shelves. No experience needed — we train on the job.",
+      "contactPhone": "+91 98765 43210",
+      "postedAt": "2026-04-01T10:00:00Z"
+    },
+    {
+      "id": "2",
+      "shopName": "Biryani House",
+      "title": "Line Cook",
+      "jobTypes": [
+        "cook"
+      ],
+      "languages": [
+        "hi",
+        "ur"
+      ],
+      "payMin": 180,
+      "payMax": 250,
+      "payPeriod": "hourly",
+      "location": {
+        "lat": 17.392,
+        "lng": 78.469,
+        "address": "Nampally, Hyderabad"
+      },
+      "storeImage": "https://picsum.photos/seed/hydshop2/400/400",
+      "description": "Evening shift cook needed for busy Hyderabadi kitchen. Must know biryani basics.",
+      "contactPhone": "+91 98123 45678",
+      "postedAt": "2026-03-15T08:00:00Z"
+    },
+    {
+      "id": "3",
+      "shopName": "Hitech Express Mart",
+      "title": "Delivery Rider",
+      "jobTypes": [
+        "delivery"
+      ],
+      "languages": [
+        "hi",
+        "en",
+        "te"
+      ],
+      "payMin": 15000,
+      "payMax": 22000,
+      "payPeriod": "monthly",
+      "location": {
+        "lat": 17.4484,
+        "lng": 78.3908,
+        "address": "Hitech City, Madhapur, Hyderabad"
+      },
+      "description": "Own two-wheeler required. Daily local deliveries within 3 km radius. Flexible hours.",
+      "contactPhone": "+91 99001 22334",
+      "postedAt": "2026-05-10T12:00:00Z"
+    },
+    {
+      "id": "4",
+      "shopName": "Secunderabad Laundry",
+      "title": "Laundry Attendant",
+      "jobTypes": [
+        "cleaning"
+      ],
+      "languages": [
+        "hi",
+        "te"
+      ],
+      "payMin": 11000,
+      "payMax": 13000,
+      "payPeriod": "monthly",
+      "location": {
+        "lat": 17.4399,
+        "lng": 78.4983,
+        "address": "Park Lane, Secunderabad"
+      },
+      "storeImage": "https://picsum.photos/seed/hydshop4/400/400",
+      "description": "Sort, wash, and fold clothes. Morning shift 8 AM – 4 PM.",
+      "contactPhone": "+91 87654 32109",
+      "postedAt": "2026-02-20T09:00:00Z"
+    },
+    {
+      "id": "5",
+      "shopName": "Banjara Books",
+      "title": "Store Cashier",
+      "jobTypes": [
+        "cashier"
+      ],
+      "languages": [
+        "en",
+        "hi"
+      ],
+      "payMin": 13000,
+      "payMax": 16000,
+      "payPeriod": "monthly",
+      "location": {
+        "lat": 17.4156,
+        "lng": 78.4489,
+        "address": "Road No. 12, Banjara Hills, Hyderabad"
+      },
+      "storeImage": "https://picsum.photos/seed/hydshop5/400/400",
+      "description": "Friendly cashier for independent bookstore. Weekend availability preferred.",
+      "contactPhone": "+91 91234 56789",
+      "postedAt": "2026-05-01T11:00:00Z"
+    },
+    {
+      "id": "6",
+      "shopName": "Irani Chai Point",
+      "title": "Tea Stall Helper",
+      "jobTypes": [
+        "cook"
+      ],
+      "languages": [
+        "hi",
+        "ur"
+      ],
+      "payMin": 10000,
+      "payMax": 12000,
+      "payPeriod": "monthly",
+      "location": {
+        "lat": 17.384,
+        "lng": 78.486,
+        "address": "Abids, Hyderabad"
+      },
+      "description": "Prepare chai, snacks, and keep the stall clean. Early morning start.",
+      "contactPhone": "+91 99887 76655",
+      "postedAt": "2026-01-10T06:00:00Z"
+    },
+    {
+      "id": "7",
+      "shopName": "Kukatpally Fashion Hub",
+      "title": "Sales Associate",
+      "jobTypes": [
+        "cashier"
+      ],
+      "languages": [
+        "en",
+        "te"
+      ],
+      "payMin": 14000,
+      "payMax": 18000,
+      "payPeriod": "monthly",
+      "location": {
+        "lat": 17.494,
+        "lng": 78.399,
+        "address": "KPHB Colony, Kukatpally, Hyderabad"
+      },
+      "storeImage": "https://picsum.photos/seed/hydshop7/400/400",
+      "description": "Help customers find clothing, manage fitting rooms, and handle POS billing.",
+      "contactPhone": "+91 88776 65544",
+      "postedAt": "2026-04-20T14:00:00Z"
+    },
+    {
+      "id": "8",
+      "shopName": "Green Bowl Salads",
+      "title": "Prep Cook",
+      "jobTypes": [
+        "cook"
+      ],
+      "languages": [
+        "en",
+        "hi"
+      ],
+      "payMin": 160,
+      "payMax": 200,
+      "payPeriod": "hourly",
+      "location": {
+        "lat": 17.406,
+        "lng": 78.472,
+        "address": "Barkatpura, Hyderabad"
+      },
+      "storeImage": "https://picsum.photos/seed/hydshop8/400/400",
+      "description": "Chop vegetables, prepare dressings, maintain kitchen hygiene standards.",
+      "contactPhone": "+91 77665 54433",
+      "postedAt": "2026-05-05T07:00:00Z"
+    },
+    {
+      "id": "9",
+      "shopName": "Gachibowli QuickShip",
+      "title": "Warehouse Packer",
+      "jobTypes": [
+        "delivery"
+      ],
+      "languages": [
+        "hi",
+        "en",
+        "te"
+      ],
+      "payMin": 12500,
+      "payMax": 15000,
+      "payPeriod": "monthly",
+      "location": {
+        "lat": 17.4401,
+        "lng": 78.3489,
+        "address": "Gachibowli, Hyderabad"
+      },
+      "description": "Pack orders accurately and assist with local dispatch. Physical work involved.",
+      "contactPhone": "+91 66554 43322",
+      "postedAt": "2026-03-28T10:00:00Z"
+    },
+    {
+      "id": "10",
+      "shopName": "Paradise Bakery",
+      "title": "Baker's Assistant",
+      "jobTypes": [
+        "cook"
+      ],
+      "languages": [
+        "hi",
+        "ur",
+        "en"
+      ],
+      "payMin": 13500,
+      "payMax": 17000,
+      "payPeriod": "monthly",
+      "location": {
+        "lat": 17.4435,
+        "lng": 78.4612,
+        "address": "MG Road, Secunderabad"
+      },
+      "storeImage": "https://picsum.photos/seed/hydshop10/400/400",
+      "description": "Early morning baking shift. Mix dough, operate oven, decorate pastries.",
+      "contactPhone": "+91 55443 32211",
+      "postedAt": "2026-04-12T05:00:00Z"
+    },
+    {
+      "shopName": "Test Shop",
+      "title": "Helper",
+      "jobTypes": [
+        "cashier"
+      ],
+      "languages": [
+        "en"
+      ],
+      "payMin": 10000,
+      "payMax": 12000,
+      "payPeriod": "monthly",
+      "location": {
+        "lat": 17.385,
+        "lng": 78.4867,
+        "address": "Test"
+      },
+      "description": "Test desc",
+      "contactPhone": "+91 99999",
+      "postedAt": "2026-06-19T10:00:00Z",
+      "id": "eFPeD3_ik-k"
+    },
+    {
+      "shopName": "Kl unveristy",
+      "title": "Cahsier",
+      "jobTypes": [
+        "cashier"
+      ],
+      "languages": [
+        "en"
+      ],
+      "payMin": 10000,
+      "payMax": 14999,
+      "payPeriod": "monthly",
+      "location": {
+        "lat": 17.34855244764779,
+        "lng": 78.33971355295908,
+        "address": "Kl unveristy"
+      },
+      "description": "Casher at canteen",
+      "contactPhone": "7386377217",
+      "postedAt": "2026-06-19T04:47:02.177Z",
+      "id": "sMlQrq5xI0Y"
+    }
+  ],
+  "jobTypes": [
+    {
+      "id": "cashier",
+      "label": "Cashier"
+    },
+    {
+      "id": "cook",
+      "label": "Cook"
+    },
+    {
+      "id": "delivery",
+      "label": "Delivery"
+    },
+    {
+      "id": "cleaning",
+      "label": "Cleaning"
+    }
+  ],
+  "languages": [
+    {
+      "id": "en",
+      "label": "English"
+    },
+    {
+      "id": "hi",
+      "label": "Hindi"
+    },
+    {
+      "id": "ur",
+      "label": "Urdu"
+    },
+    {
+      "id": "te",
+      "label": "Telugu"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
