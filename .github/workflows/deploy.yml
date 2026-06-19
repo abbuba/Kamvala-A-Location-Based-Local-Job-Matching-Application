@@ -27,6 +27,15 @@ jobs:
 
       - run: npm ci
 
+      - name: Verify Mapbox token secret
+        env:
+          VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
+        run: |
+          if [ -z "$VITE_MAPBOX_TOKEN" ]; then
+            echo "::error::Missing GitHub secret VITE_MAPBOX_TOKEN. Go to repo Settings → Secrets and variables → Actions → New repository secret. Copy the value from your local .env file (do not commit .env)."
+            exit 1
+          fi
+
       - name: Build for GitHub Pages
         env:
           GITHUB_PAGES: 'true'
