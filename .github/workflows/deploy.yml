@@ -1,27 +1,23 @@
-name: Deploy to GitHub Pages
+name: Build and publish to main
 
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'dist/**'
+      - 'docs/**'
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Configure Pages
-        uses: actions/configure-pages@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/setup-node@v4
         with:
@@ -35,7 +31,7 @@ jobs:
           VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
         run: |
           if [ -z "$VITE_MAPBOX_TOKEN" ]; then
-            echo "::warning::VITE_MAPBOX_TOKEN secret is empty — map will not load on the live site"
+            echo "::warning::VITE_MAPBOX_TOKEN secret is empty — map may not load on the live site"
           else
             echo "VITE_MAPBOX_TOKEN=$VITE_MAPBOX_TOKEN" > .env.production
             echo "Mapbox token loaded for build (${#VITE_MAPBOX_TOKEN} chars)"
@@ -50,18 +46,11 @@ jobs:
       - name: SPA fallback for client-side routes
         run: cp dist/index.html dist/404.html
 
-      - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Commit built assets to main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add dist
+          git diff --staged --quiet && echo "No dist changes" && exit 0
+          git commit -m "chore: update production build in dist/"
+          git push
