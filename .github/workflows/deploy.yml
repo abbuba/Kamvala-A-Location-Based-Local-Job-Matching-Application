@@ -30,6 +30,17 @@ jobs:
 
       - run: npm ci
 
+      - name: Write Mapbox token for Vite build
+        env:
+          VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
+        run: |
+          if [ -z "$VITE_MAPBOX_TOKEN" ]; then
+            echo "::warning::VITE_MAPBOX_TOKEN secret is empty — map will not load on the live site"
+          else
+            echo "VITE_MAPBOX_TOKEN=$VITE_MAPBOX_TOKEN" > .env.production
+            echo "Mapbox token loaded for build (${#VITE_MAPBOX_TOKEN} chars)"
+          fi
+
       - name: Build for GitHub Pages
         env:
           GITHUB_PAGES: 'true'

@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import Map, { Layer, Marker, Source } from 'react-map-gl/mapbox'
 import type { Listing } from '../../types/listing'
 import { useLocationContext } from '../../context/LocationContext'
@@ -25,6 +25,7 @@ interface JobMapProps {
 export function JobMap({ listings, onSelectListing, selectedId }: JobMapProps) {
   const { center } = useLocationContext()
   const { radiusKm } = useFilterContext()
+  const [mapError, setMapError] = useState(false)
 
   const circleData = useMemo(
     () => ({
@@ -36,6 +37,10 @@ export function JobMap({ listings, onSelectListing, selectedId }: JobMapProps) {
 
   if (!hasMapboxToken) {
     return <MapFallback />
+  }
+
+  if (mapError) {
+    return <MapFallback message="Map tiles failed to load" />
   }
 
   return (
@@ -52,6 +57,7 @@ export function JobMap({ listings, onSelectListing, selectedId }: JobMapProps) {
           style={{ width: '100%', height: '100%' }}
           mapStyle={MAP_STYLE}
           attributionControl={false}
+          onError={() => setMapError(true)}
           onLoad={(e) => e.target.resize()}
         >
           <MapViewSync center={center} radiusKm={radiusKm} />

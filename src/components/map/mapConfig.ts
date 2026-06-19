@@ -1,17 +1,19 @@
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl-csp.js'
-import MapboxWorker from 'mapbox-gl/dist/mapbox-gl-csp-worker.js?worker'
+import mapboxWorkerUrl from 'mapbox-gl/dist/mapbox-gl-csp-worker.js?url'
 import type { Coordinates } from '../../types/listing'
 
 export const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN as string | undefined
 export const MAP_STYLE = 'mapbox://styles/mapbox/streets-v12'
 export const hasMapboxToken = Boolean(MAPBOX_TOKEN?.length)
 
-mapboxgl.workerClass = MapboxWorker as unknown as typeof mapboxgl.workerClass
+// ?url resolves with Vite base path — required for GitHub Pages subfolder deploys
+mapboxgl.workerUrl = mapboxWorkerUrl
+
 if (MAPBOX_TOKEN) {
   mapboxgl.accessToken = MAPBOX_TOKEN
 }
 
-export { mapboxgl, MapboxWorker }
+export { mapboxgl }
 
 export function zoomForRadius(radiusKm: number): number {
   if (radiusKm <= 1) return 14

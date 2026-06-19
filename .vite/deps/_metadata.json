@@ -1,0 +1,48 @@
+{
+  "hash": "ef0eed92",
+  "configHash": "c7d94b0a",
+  "lockfileHash": "07847539",
+  "browserHash": "fcc7dfb0",
+  "optimized": {
+    "mapbox-gl/dist/mapbox-gl-csp.js": {
+      "src": "../../node_modules/mapbox-gl/dist/mapbox-gl-csp.js",
+      "file": "mapbox-gl_dist_mapbox-gl-csp__js.js",
+      "fileHash": "0b5f7ac9",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "51ef4521",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.mjs",
+      "file": "react-router-dom.js",
+      "fileHash": "1815dfbc",
+      "needsInterop": false
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "950fecfd",
+      "needsInterop": true
+    },
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "09755c56",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-FDOR9p9I": {
+      "file": "chunk-FDOR9p9I.js",
+      "isDynamicEntry": false
+    },
+    "react-dom-DLkJWeQJ": {
+      "file": "react-dom-DLkJWeQJ.js",
+      "isDynamicEntry": false
+    }
+  }
+}
